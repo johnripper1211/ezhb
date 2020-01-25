@@ -20,22 +20,32 @@ $con = new connectDB();
 
 if ($submit == "aon") {
     if (mysqli_num_rows($result) == 1) {
-        if($moneyc<$money){
+        if($money > 0){
+            if($moneyc<$money){
+                echo "<script>";
+                echo "alert(\"ยอดเงินของท่านไม่เพียงพอ\");";
+                echo "window.history.back()";
+                echo "</script>";
+            }
+            else{
+                $con->updateaon($money,$phone);
+                $con->updateaon1($money);
+            }
+        }
+        else{
             echo "<script>";
-            echo "alert(\"ยอดเงินของท่านไม่เพียงพอ\");";
+            echo "alert(\"กรุณากรอกจำนวนเงิน\");";
             echo "window.history.back()";
             echo "</script>";
-        }else{
-            $con->updateaon($money,$phone);
-            $con->updateaon1($money);
         }
     
     
-    } else {
-      echo "<script>";
-      echo "alert(\"พร้อมเพย์ไม่ถูกต้อง\");";
-      echo "window.history.back()";
-      echo "</script>";
+    } 
+    else {
+        echo "<script>";
+        echo "alert(\"พร้อมเพย์ไม่ถูกต้อง\");";
+        echo "window.history.back()";
+        echo "</script>";
     }
     
 } 

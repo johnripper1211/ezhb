@@ -19,18 +19,27 @@ $con = new connectDB();
 
 if ($submit == "aon") {
     if ($row['b_name'] == $bank) {
-        if($moneyc<$money){
+        if($money > 0){
+            if($moneyc<$money ){
+                echo "<script>";
+                echo "alert(\"ยอดเงินของท่านไม่เพียงพอ\");";
+                echo "window.history.back()";
+                echo "</script>";
+            }else{
+                $con->updateaon_bank($money,$acc);
+                $con->updateaon_bank1($money);
+            }
+        }
+        else{
             echo "<script>";
-            echo "alert(\"ยอดเงินของท่านไม่เพียงพอ\");";
+            echo "alert(\" กรุณารอกจำนวนเงิน \");";
             echo "window.history.back()";
             echo "</script>";
-        }else{
-            $con->updateaon_bank($money,$acc);
-            $con->updateaon_bank1($money);
         }
     
     
-    } else {
+    } 
+    else {
       echo "<script>";
       echo "alert(\" เลขบัญชีไม่ถูกต้อง \");";
       echo "window.history.back()";
