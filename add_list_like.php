@@ -13,6 +13,7 @@ $CL->load('header');
         $(".input-mask").inputmask();
     });
 </script>
+
 <body>
     <div id="page-wrapper">
         <div id="sb-site">
@@ -27,17 +28,18 @@ $CL->load('header');
                                     เพิ่มรายการโปรด
                                 </h3>
                                 <div class="example-box-wrapper">
-                                    <form class="form-horizontal bordered-row">
+                                    <form class="form-horizontal bordered-row" action="action_add_list_like.php" method="POST">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">ธนาคาร</label>
                                             <div class="col-sm-6">
                                                 <select class="form-control">
+                                                    <option>ธนาคาร Easy Hack</option>
                                                     <option>ธนาคารกรุงไทย</option>
                                                     <option>ธนาคารออมสิน</option>
                                                     <option>ธนาคารกสิกร</option>
                                                     <option>ธนาคารกรุงเทพ</option>
                                                     <option>ธนาคารไทยพาณิชย์</option>
-                                                    <option>ธนาคารกรุงศรี</option>
+                                                    <option>ธนาคารกรุงศรี</option>ค
                                                     <option>ธนาคารทหารไทย</option>
                                                 </select>
                                             </div>
@@ -45,7 +47,7 @@ $CL->load('header');
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">หมายเลขบัญชี</label>
                                             <div class="col-sm-6">
-                                            <input type="text" class="input-mask form-control" placeholder="999-99-9999-99-9" data-inputmask="&apos;mask&apos;:&apos;999-99-9999-99-9&apos;">
+                                                <input name="acNum" type="text" class="input-mask form-control" placeholder="999-99-9999-99-9" data-inputmask="&apos;mask&apos;:&apos;999-99-9999-99-9&apos;">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -57,7 +59,7 @@ $CL->load('header');
 
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="button" class="btn btn-primary" id="" name="aon" placeholder="2000" value="เพิ่มรายการโปรด">
+                                                    <input type="submit" class="btn btn-primary" id="" name="aon" placeholder="2000" value="เพิ่มรายการโปรด">
                                                 </div>
                                             </div>
                                         </div>

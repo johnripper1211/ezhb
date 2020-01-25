@@ -5,7 +5,7 @@ class connectDB
     {
         $dbhost = "localhost";
         $dbuser = "root";
-        $dbpass = "x123456";
+        $dbpass = "";
         $dbdatabase = "db_ezhb";
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbdatabase);
         mysqli_set_charset($conn, "utf-8");
@@ -58,4 +58,5 @@ class connectDB
         $sql  = "SELECT * FROM `customer` WHERE user='$name'";
         return $sql;
     }
+
 }
