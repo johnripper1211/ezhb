@@ -92,7 +92,7 @@ $row = mysqli_fetch_array($result);
                 <div id="page-content">
                     <div class="container">
                         <div class="content-box">
-                            <form action="checkEvent.php?id=<?php echo $row['c_id']; ?>" method="POST" class="form-horizontal pad15L pad15R bordered-row" id="form" required data-parsley-validate="">
+                            <form action="update_member.php?id=<?php echo $row['c_id']; ?>" method="POST" class="form-horizontal pad15L pad15R bordered-row" id="form" required data-parsley-validate="">
 
                                 <?php if ($_SESSION["status"] == "admin") { //ถ้าเป็น admin 
                                 ?>
@@ -216,7 +216,7 @@ $row = mysqli_fetch_array($result);
                                 }
                                 ?>
                                 <div class="button-pane mrg20T">
-                                    <button type="submit" class="btn btn-info">Save</button>
+                                    <button type="submit" name="submit" class="btn btn-info">Save</button>
                                     <a href="<?php $CL->base_url('dashboard'); ?>" class="btn btn-link font-gray-dark">Cancel</a>
                                 </div>
                             </form>
