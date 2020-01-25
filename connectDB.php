@@ -36,8 +36,7 @@ class connectDB
     {
         $sql = "DELETE FROM `customer` WHERE c_id='" . $id . "'";
 
-        if (mysqli_query($this->connect(), $sql)) {
-
+        if (mysqli_query($this->connect(), $sql)) {   
             header("Location:customer_list.php");
         } else {
             header("Location:show_edit_customer.php");
@@ -59,12 +58,13 @@ class connectDB
         return $sql;
     }
 
-    public function updateaon($money,$phone)
+    public function updateaon($money,$phone,$f_name,$f_promptPay)
     {
         
        $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE phone='" . $phone . "'";
         if (mysqli_query($this->connect(), $sql)) {
-           header("Location:aon_money_promtpay.php");
+            
+            header("Location:slip.php?ph=$phone&na=$f_name&pr=$f_promptPay&m=$money");
         } else echo "Cannot aon";
     }
     public function updateaon1($money)
@@ -76,16 +76,17 @@ class connectDB
        
         if (mysqli_query($this->connect(), $sql)) {
             
-            header("Location:aon_money_promtpay.php");
+            // header("Location:slip.php?id=1");
         } else echo "Cannot aon";
     }
 
-    public function updateaon_bank($money,$acc)
+    public function updateaon_bank($money,$acc,$f_name,$f_promptPay)
     {
         
        $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE accountNumber ='" . $acc . "'";
         if (mysqli_query($this->connect(), $sql)) {
-           header("Location:aon_money_bank.php");
+
+           header("Location:slip_bank.php?ph=$acc&na=$f_name&pr=$f_promptPay&m=$money");
         } else echo "Cannot aon";
     }
     public function updateaon_bank1($money)
@@ -97,7 +98,7 @@ class connectDB
        
         if (mysqli_query($this->connect(), $sql)) {
             
-            header("Location:aon_money_bank.php");
+            // header("Location:slip.php");
         } else echo "Cannot aon";
     }
 
