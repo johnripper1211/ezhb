@@ -5,7 +5,7 @@ class connectDB
     {
         $dbhost = "localhost";
         $dbuser = "root";
-        $dbpass = "x123456";
+        $dbpass = "";
         $dbdatabase = "db_ezhb";
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbdatabase);
         mysqli_set_charset($conn, "utf-8");
@@ -48,5 +48,26 @@ class connectDB
     {
         $sql  = "SELECT * FROM `customer` WHERE user='$name'";
         return $sql;
+    }
+
+    public function updateaon($money,$phone)
+    {
+        
+       $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE phone='" . $phone . "'";
+        if (mysqli_query($this->connect(), $sql)) {
+           header("Location:aon_money_promtpay.php");
+        } else echo "Cannot aon";
+    }
+    public function updateaon1($money)
+    {
+        session_start();
+        echo $_SESSION["userID"];
+        $sql = "UPDATE `customer` SET `money`= money - '" . $money . "' WHERE c_id='" . $_SESSION["userID"] . "'";
+
+       
+        if (mysqli_query($this->connect(), $sql)) {
+            
+            header("Location:aon_money_promtpay.php");
+        } else echo "Cannot aon";
     }
 }
