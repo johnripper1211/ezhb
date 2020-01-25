@@ -33,9 +33,18 @@ $CL->load('header');
 <script type="text/javascript">
     /* Datepicker bootstrap */
     $(document).ready(function() {
-        var val = Math.floor(100000000000 + Math.random() * 900000000000);
-        console.log(val);
-        document.getElementById("myText").value = val;
+        var randomChars = '0123456789';
+        var length = 16;
+        var result = '';
+        for (var i = 1; i <= length; i++) {
+            if(i == 4 || i == 7 || i == 12 || i == 15){
+                result += '-'
+            }else{
+                result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+            }
+        }
+        console.log(result);
+        document.getElementById("myText").value = result;
         $('#dateRangePicker').datepicker({
             format: 'dd-mm-yyyy',
             endDate: '0d',
@@ -186,7 +195,7 @@ $CL->load('header');
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">username:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="user" maxlength = "20" placeholder="กรุณากรอก User Name" id="user" required>
+                                                <input type="text" class="form-control" name="user" maxlength="20" placeholder="กรุณากรอก User Name" id="user" required>
                                             </div>
                                         </div>
 
@@ -194,7 +203,7 @@ $CL->load('header');
                                             <label class="col-sm-3 control-label">Password:</label>
                                             <div class="col-sm-6">
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input class="form-control" name="pass" type="password" maxlength = "30" placeholder="กรุณากรอก password" required>
+                                                    <input class="form-control" name="pass" type="password" maxlength="30" placeholder="กรุณากรอก password" required>
                                                     <div class="input-group-addon">
                                                         <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                                     </div>
@@ -223,13 +232,13 @@ $CL->load('header');
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">จำนวนเงิน:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="money" placeholder="กรุณาใส่จำนวนเงิน" id="fname" maxlength = "12" required>
+                                                <input type="text" class="form-control" name="money" placeholder="กรุณาใส่จำนวนเงิน" id="fname" maxlength="12" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">Accout:</label>
+                                            <label class="col-sm-3 control-label">เลขบัญชี:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="acc" placeholder="กรุณากรอก User Name" id="myText" readonly>
+                                                <input type="text" class="form-control" name="acc" placeholder="กรุณากรอก เลขบัญชี" id="myText" readonly>
                                             </div>
                                         </div>
 
@@ -248,12 +257,12 @@ $CL->load('header');
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">เพศ:</label>
                                             <div class="col-sm-6">
-                                                <label class="radio-inline" >
-                                                    <input type="radio" id="" required name="example-radio1" value="M">
+                                                <label class="radio-inline">
+                                                    <input type="radio"  required name="example-radio1" value="M">
                                                     ชาย
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" id="" required name="example-radio1" value="F">
+                                                    <input type="radio"  required name="example-radio1" value="F">
                                                     หญิง
                                                 </label>
                                             </div>

@@ -44,10 +44,10 @@ class connectDB
         }
     }
 
-    public function update_member($fname, $lname, $idCard, $user, $pass, $email, $phone, $promptPay, $birthDate, $money, $id, $gender)
+    public function update_member($fname, $lname, $idCard, $user, $pass, $email,$id)
     {
-        echo $fname, $lname, $idCard, $user, $pass, $email, $phone, $promptPay, $birthDate, $money, $id, $gender;
-        $sql = "UPDATE `customer` SET `fname`='" . $fname . "',`lname`='" . $lname . "',`idCard`='" . $idCard . "',`user`='" . $user . "',`pass`='" . $pass . "',`email`='" . $email . "',`phone`='" . $phone . "',`promptPay`='" . $promptPay . "',`birthDate`='" . $birthDate . "',`money`='" . $money . "',`gender`='" . $gender . "' WHERE c_id='" . $id . "'";
+        echo $fname, $lname, $idCard, $user, $pass, $email;
+        $sql = "UPDATE `customer` SET `fname`='" . $fname . "',`lname`='" . $lname . "',`idCard`='" . $idCard . "',`user`='" . $user . "',`pass`='" . $pass . "',`email`='" . $email . "' WHERE c_id='" . $id . "'";
         if (mysqli_query($this->connect(), $sql)) {
             header("Location:editmember.php");
         } else echo "Cannot Insert";
