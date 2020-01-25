@@ -5,7 +5,7 @@ class connectDB
     {
         $dbhost = "localhost";
         $dbuser = "root";
-        $dbpass = "x123456";
+        $dbpass = "";
         $dbdatabase = "db_ezhb";
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbdatabase);
         mysqli_set_charset($conn, "utf-8");
@@ -44,7 +44,7 @@ class connectDB
         }
     }
 
-    public function update_member($fname, $lname, $idCard, $user, $pass, $email, $id)
+    public function update_member($fname, $lname, $idCard, $user, $pass, $email,$id)
     {
         echo $fname, $lname, $idCard, $user, $pass, $email;
         $sql = "UPDATE `customer` SET `fname`='" . $fname . "',`lname`='" . $lname . "',`idCard`='" . $idCard . "',`user`='" . $user . "',`pass`='" . $pass . "',`email`='" . $email . "' WHERE c_id='" . $id . "'";
@@ -59,48 +59,33 @@ class connectDB
         return $sql;
     }
 
-    public function select_bank($acc)
+    public function updateaon($money,$phone)
     {
-        $sql  = "SELECT * FROM `customer` WHERE accountNumber='$acc'";
-        return $sql;
-    }
-
-    public function update_monney_withdraw($accountNumber, $money)
-    {
-        $sql  = "UPDATE customer SET `money`= money - '" . $money . "'  WHERE accountNumber='$accountNumber'";
-        echo $sql;
+        
+       $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE phone='" . $phone . "'";
         if (mysqli_query($this->connect(), $sql)) {
-            header("Location:withdraw.php");
-        } else echo "Cannot Insert";
-    }
-
-    public function updateaon($money, $phone)
-    {
-        $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE phone='" . $phone . "'";
-        if (mysqli_query($this->connect(), $sql)) {
-            header("Location:aon_money_promtpay.php");
+           header("Location:aon_money_promtpay.php");
         } else echo "Cannot aon";
     }
-
     public function updateaon1($money)
     {
         session_start();
         echo $_SESSION["userID"];
         $sql = "UPDATE `customer` SET `money`= money - '" . $money . "' WHERE c_id='" . $_SESSION["userID"] . "'";
 
-
+       
         if (mysqli_query($this->connect(), $sql)) {
-
+            
             header("Location:aon_money_promtpay.php");
         } else echo "Cannot aon";
     }
 
-    public function updateaon_bank($money, $acc)
+    public function updateaon_bank($money,$acc)
     {
-
-        $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE accountNumber ='" . $acc . "'";
+        
+       $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE accountNumber ='" . $acc . "'";
         if (mysqli_query($this->connect(), $sql)) {
-            header("Location:aon_money_bank.php");
+           header("Location:aon_money_bank.php");
         } else echo "Cannot aon";
     }
     public function updateaon_bank1($money)
@@ -109,10 +94,11 @@ class connectDB
         echo $_SESSION["userID"];
         $sql = "UPDATE `customer` SET `money`= money - '" . $money . "' WHERE c_id='" . $_SESSION["userID"] . "'";
 
-
+       
         if (mysqli_query($this->connect(), $sql)) {
-
+            
             header("Location:aon_money_bank.php");
         } else echo "Cannot aon";
     }
+
 }
