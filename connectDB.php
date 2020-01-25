@@ -58,6 +58,21 @@ class connectDB
         return $sql;
     }
 
+    public function select_bank($acc)
+    {
+        $sql  = "SELECT * FROM `customer` WHERE accountNumber='$acc'";
+        return $sql;
+    }
+
+    public function update_monney_withdraw($accountNumber, $money)
+    {
+        $sql  = "UPDATE customer SET `money`= money - '" . $money . "'  WHERE accountNumber='$accountNumber'";
+        echo $sql;
+        if (mysqli_query($this->connect(), $sql)) {
+            header("Location:withdraw.php");
+        } else echo "Cannot Insert";
+    }
+
     public function updateaon($money,$phone,$f_name,$f_promptPay)
     {
         
