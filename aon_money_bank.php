@@ -2,7 +2,16 @@
 // โครงสร้างพื้นฐานรูปแบบนี้เวลาสร้างหลายๆหน้า
 include 'controller.php';
 $CL->load('header');
+error_reporting(E_ALL ^ E_NOTICE);
+session_start();
+include 'connectDB.php';
+$user = $_SESSION["user"];
+$conn = new connectDB();
+$result = mysqli_query($conn->connect(), $conn->select_member($user));
+$row = mysqli_fetch_array($result);
+$moneyc = (int)$row["money"];
 ?>
+
 <script type="text/javascript" src="assets/widgets/input-mask/inputmask.js"></script>
 
 <script type="text/javascript">
@@ -27,27 +36,37 @@ $CL->load('header');
                                     โอนเงินผ่านธนาคารอื่น
                                 </h3>
                                 <div class="example-box-wrapper">
-                                    <form class="form-horizontal bordered-row">
+                                    <form action="check_ao_bank.php" method="POST" class="form-horizontal bordered-row">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">ธนาคาร</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control">
-                                                    <option>ธนาคารกรุงไทย</option>
-                                                    <option>ธนาคารออมสิน</option>
-                                                    <option>ธนาคารกสิกร</option>
-                                                    <option>ธนาคารกรุงเทพ</option>
-                                                    <option>ธนาคารไทยพาณิชย์</option>
-                                                    <option>ธนาคารกรุงศรี</option>
-                                                    <option>ธนาคารทหารไทย</option>
+                                                <select class="form-control" name="bank">
+                                                    <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
+                                                    <option value="ธนาคารออมสิน">ธนาคารออมสิน</option>
+                                                    <option value="ธนาคารกสิกร">ธนาคารกสิกร</option>
+                                                    <option value="ธนาคารกรุงเทพ">ธนาคารกรุงเทพ</option>
+                                                    <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
+                                                    <option value="ธนาคารกรุงศรี">ธนาคารกรุงศรี</option>
+                                                    <option value="ธนาคารทหารไทย">ธนาคารทหารไทย</option>
+                                                    <option value="Easy Hack">Easy Hack</option>
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">ยอดเงินที่สามารถโอนได้</label>
+                                            <div class="col-sm-6">
+                                            <input type="text" class="input-mask form-control"  name="moneyc" value="<?php echo $row['money']; ?>"  readonly>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">หมายเลขบัญชี</label>
                                             <div class="col-sm-6">
-                                            <input type="text" class="input-mask form-control" placeholder="id" data-inputmask="&apos;mask&apos;:&apos;9-9999-99999-99-9&apos;">
+                                            <input type="text" class="input-mask form-control" placeholder="id" data-inputmask="&apos;mask&apos;:&apos;9-9999-99999-99-9&apos;" name="acc">
                                             </div>
                                         </div>
+
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Money</label>
                                             <div class="col-sm-6">
@@ -63,7 +82,7 @@ $CL->load('header');
 
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="button" class="btn btn-primary" id="" name="aon" placeholder="2000" value="โอนเงิน">
+                                                    <button type="submit" class="btn btn-primary col-sm-3 mrg10A" name="submit" value="aon"> โอน </button>
                                                 </div>
 
                                             </div>

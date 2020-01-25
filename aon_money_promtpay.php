@@ -4,18 +4,12 @@ include 'controller.php';
 $CL->load('header');
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
-
-
-
 include 'connectDB.php';
-
 $user = $_SESSION["user"];
 $conn = new connectDB();
 $result = mysqli_query($conn->connect(), $conn->select_member($user));
 $row = mysqli_fetch_array($result);
 $moneyc = (int)$row["money"];
-
-
 ?>
 <script type="text/javascript" src="assets/widgets/input-mask/inputmask.js"></script>
 
@@ -44,7 +38,7 @@ $moneyc = (int)$row["money"];
               
                                 </h3>
                                 <div class="example-box-wrapper">
-                                    <form  action="check_aon.php" method="POST" class="form-horizontal bordered-row" >
+                                    <form  action="check_aon_bank.php" method="POST" class="form-horizontal bordered-row" >
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">ยอดเงินที่สามารถโอนได้</label>

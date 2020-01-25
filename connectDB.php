@@ -79,4 +79,26 @@ class connectDB
             header("Location:aon_money_promtpay.php");
         } else echo "Cannot aon";
     }
+
+    public function updateaon_bank($money,$acc)
+    {
+        
+       $sql = "UPDATE `customer` SET `money`= money + '" . $money . "' WHERE accountNumber ='" . $acc . "'";
+        if (mysqli_query($this->connect(), $sql)) {
+           header("Location:aon_money_bank.php");
+        } else echo "Cannot aon";
+    }
+    public function updateaon_bank1($money)
+    {
+        session_start();
+        echo $_SESSION["userID"];
+        $sql = "UPDATE `customer` SET `money`= money - '" . $money . "' WHERE c_id='" . $_SESSION["userID"] . "'";
+
+       
+        if (mysqli_query($this->connect(), $sql)) {
+            
+            header("Location:aon_money_bank.php");
+        } else echo "Cannot aon";
+    }
+
 }
