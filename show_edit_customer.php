@@ -59,7 +59,7 @@ $row = mysqli_fetch_array($result);
 <body>
     <div id="page-wrapper">
         <div id="sb-site">
-            <?php $CL->load('admin_option'); ?>
+            <!-- <?php $CL->load('admin_option'); ?> -->
             <?php $CL->load('menu'); ?>
             <div id="page-content-wrapper">
                 <div id="page-content">
@@ -113,20 +113,20 @@ $row = mysqli_fetch_array($result);
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">เบอร์โทร:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="input-mask form-control" name="phone" value=<?php echo $row['phone']; ?> data-inputmask="'mask':'099-999-9999'">
+                                                <input type="text" class="input-mask form-control" name="phone" value="<?php echo $row['phone']; ?>" data-inputmask="'mask':'099-999-9999'">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">พร้อมเพย์:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="input-mask form-control" name="promptPay" value=<?php echo $row['promptPay']; ?> data-inputmask="'mask':'099-999-9999'">
+                                                <input type="text" class="input-mask form-control" name="promptPay" value="<?php echo $row['promptPay']; ?>" data-inputmask="'mask':'099-999-9999'">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">จำนวนเงิน:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="money" value=<?php echo $row['money']; ?> id="fname">
+                                                <input type="text" class="form-control" name="money" value=<?php echo $row['money']; ?> id="fname" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -152,11 +152,11 @@ $row = mysqli_fetch_array($result);
                                             <label class="col-sm-3 control-label">เพศ:</label>
                                             <div class="col-sm-6">
                                                 <label class="radio-inline">
-                                                    <input type="radio" id="" name="example-radio1" value="M">
+                                                    <input type="radio" id="" name="example-radio1" value="M" <?php echo $row['gender'] == 'M' ? 'checked' : '' ?>>
                                                     ชาย
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" id="" name="example-radio1" value="F">
+                                                    <input type="radio" id="" name="example-radio1" value="F" <?php echo $row['gender'] == 'F' ? 'checked' : '' ?>>
                                                     หญิง
                                                 </label>
                                             </div>

@@ -1,6 +1,5 @@
 
 <?php
-
 require_once 'connectDB.php';
 error_reporting(E_ALL ^ E_NOTICE);
 $fname = $_POST['fname'];
@@ -23,12 +22,3 @@ if ($radioVal == "M") {
 } else if ($radioVal == "F") {
     $gender = 'F';
 }
-$con = new connectDB();
-if ($submit == "register") {
-    $con->insert($fname, $lname, $idCard, $user, $pass, $email, $phone, $promptPay, $birthDate, $ac, $m, $gender);
-} else {
-    $con->update($fname, $lname, $idCard, $user, $pass, $email, $phone, $promptPay, $birthDate, $m, $id,$gender);
-}
-
-
-?>

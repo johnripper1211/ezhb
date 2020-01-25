@@ -184,9 +184,9 @@ $CL->load('header');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">User Name:</label>
+                                            <label class="col-sm-3 control-label">username:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="user" placeholder="กรุณากรอก User Name" id="user" required>
+                                                <input type="text" class="form-control" name="user" maxlength = "20" placeholder="กรุณากรอก User Name" id="user" required>
                                             </div>
                                         </div>
 
@@ -194,7 +194,7 @@ $CL->load('header');
                                             <label class="col-sm-3 control-label">Password:</label>
                                             <div class="col-sm-6">
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input class="form-control" name="pass" type="password" placeholder="กรุณากรอก password" required>
+                                                    <input class="form-control" name="pass" type="password" maxlength = "30" placeholder="กรุณากรอก password" required>
                                                     <div class="input-group-addon">
                                                         <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                                     </div>
@@ -210,20 +210,20 @@ $CL->load('header');
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Phone:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="input-mask form-control"  required data-inputmask="'mask':'099-999-9999'">
+                                                <input type="text" class="input-mask form-control" name="phone" required data-inputmask="'mask':'099-999-9999'">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Promptpay:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="input-mask form-control"  required data-inputmask="'mask':'099-999-9999'">
+                                                <input type="text" class="input-mask form-control" name="promptPay" required data-inputmask="'mask':'099-999-9999'">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">จำนวนเงิน:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="money" placeholder="กรุณาใส่จำนวนเงิน" id="fname" required>
+                                                <input type="text" class="form-control" name="money" placeholder="กรุณาใส่จำนวนเงิน" id="fname" maxlength = "12" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -248,12 +248,12 @@ $CL->load('header');
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">เพศ:</label>
                                             <div class="col-sm-6">
-                                                <label class="radio-inline">
-                                                    <input type="radio" id="" name="example-radio1" value="M">
+                                                <label class="radio-inline" >
+                                                    <input type="radio" id="" required name="example-radio1" value="M">
                                                     ชาย
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" id="" name="example-radio1" value="F">
+                                                    <input type="radio" id="" required name="example-radio1" value="F">
                                                     หญิง
                                                 </label>
                                             </div>
