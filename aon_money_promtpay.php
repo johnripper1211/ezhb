@@ -38,7 +38,7 @@ $moneyc = (int)$row["money"];
               
                                 </h3>
                                 <div class="example-box-wrapper">
-                                    <form  action="check_aon_bank.php" method="POST" class="form-horizontal bordered-row" >
+                                    <form  action="check_aon.php" method="POST" class="form-horizontal bordered-row" >
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">ยอดเงินที่สามารถโอนได้</label>
