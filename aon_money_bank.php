@@ -10,6 +10,7 @@ $conn = new connectDB();
 $result = mysqli_query($conn->connect(), $conn->select_member($user));
 $row = mysqli_fetch_array($result);
 $moneyc = (int)$row["money"];
+
 ?>
 
 <script type="text/javascript" src="assets/widgets/input-mask/inputmask.js"></script>

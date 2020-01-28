@@ -31,8 +31,17 @@ if ($submit == "aon") {
                 echo "window.history.back()";
                 echo "</script>";
             }else{
-                $con->updateaon_bank($money,$acc,$f_name,$f_promptPay);
-                $con->updateaon_bank1($money);
+                session_start();
+                if($_SESSION['userID']==$row['c_id']){
+                    echo "<script>";
+                    echo "alert(\"ไม่สามารถโอนเงินผ่านเบอร์พร้อมเพย์ตัวเองได้\");";
+                    echo "window.history.back()";
+                    echo "</script>";
+                }else{
+                    $con->updateaon_bank($money,$acc,$f_name,$f_promptPay);
+                    $con->updateaon_bank1($money);
+                }
+                
             }
         }
         else{

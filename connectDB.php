@@ -22,6 +22,13 @@ class connectDB
             header("Location:register.php");
         } else echo "Cannot Insert";
     }
+    public function insert_ll($id,$ll_bname,$ll_name,$ll_promptPay,$ll_accountNumber)
+    {
+        $sql = "INSERT INTO `list_like`(`cid`, `ll_bname`, `ll_name`, `ll_promptPay`, `ll_accountNumber`) VALUES ('$id','$ll_bname','$ll_name','$ll_promptPay','$ll_accountNumber')";
+        if (mysqli_query($this->connect(), $sql)) {
+            // header("Location:list_like.php");
+        } else echo "Cannot Insert";
+    }
 
     public function update($fname, $lname, $idCard, $user, $pass, $email, $phone, $promptPay, $birthDate, $money, $id, $gender)
     {
@@ -60,6 +67,11 @@ class connectDB
     public function select_ll()
     {
         $sql  = "SELECT * FROM `list_like`";
+        return $sql;
+    }
+    public function select_ll_sin($ll_id)
+    {
+        $sql  = "SELECT * FROM `list_like` WHERE ll_id='$ll_id'";
         return $sql;
     }
     public function delete_ll($id)

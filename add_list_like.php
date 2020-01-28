@@ -30,21 +30,6 @@ $CL->load('header');
                                 <div class="example-box-wrapper">
                                     <form class="form-horizontal bordered-row" action="action_add_list_like.php" method="POST">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">ธนาคาร</label>
-                                            <div class="col-sm-6">
-                                                <select class="form-control">
-                                                    <option>ธนาคาร Easy Hack</option>
-                                                    <option>ธนาคารกรุงไทย</option>
-                                                    <option>ธนาคารออมสิน</option>
-                                                    <option>ธนาคารกสิกร</option>
-                                                    <option>ธนาคารกรุงเทพ</option>
-                                                    <option>ธนาคารไทยพาณิชย์</option>
-                                                    <option>ธนาคารกรุงศรี</option>ค
-                                                    <option>ธนาคารทหารไทย</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label class="col-sm-3 control-label">หมายเลขบัญชี</label>
                                             <div class="col-sm-6">
                                                 <input name="acNum" type="text" class="input-mask form-control" placeholder="999-99-9999-99-9" data-inputmask="&apos;mask&apos;:&apos;999-99-9999-99-9&apos;">

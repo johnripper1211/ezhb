@@ -10,6 +10,13 @@ $conn = new connectDB();
 $result = mysqli_query($conn->connect(), $conn->select_member($user));
 $row = mysqli_fetch_array($result);
 $moneyc = (int)$row["money"];
+$id = $_REQUEST['ll_id'];
+$result2 = mysqli_query($conn->connect(), $conn->select_ll_sin($id));
+$pp = "";
+if($row2 = mysqli_fetch_array($result2)){
+    // echo $id;
+    $pp = $row2['ll_promptPay'];
+}
 ?>
 <script type="text/javascript" src="assets/widgets/input-mask/inputmask.js"></script>
 
@@ -50,7 +57,7 @@ $moneyc = (int)$row["money"];
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">เบอร์พร้อมเพย์</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="input-mask form-control" name="phone" placeholder="099-999-9999" data-inputmask="'mask':'099-999-9999'" > 
+                                                <input type="text" class="input-mask form-control" name="phone" placeholder="099-999-9999" data-inputmask="'mask':'099-999-9999'" value="<?php echo $pp ?>"> 
                                             </div>
                                         </div>
 
