@@ -388,15 +388,20 @@ $CL = new CONTROLLER;
 
     </div><!-- #header-nav-right -->
 
-
+<?php 
+    include 'connectDB.php';
+    $conn = new connectDB();
+    $result = mysqli_query($conn->connect(), $conn->select_member($_SESSION["user"]));
+    $row = mysqli_fetch_array($result);
+?>
 </div>
 <div id="page-sidebar">
     <div class="scroll-sidebar">
         <div>
             <div class="p-1">
-                <label for="name" class="form-control"> ชื่อบัญชี : <?php echo $_SESSION["fname"] . ' ' . $_SESSION["lname"] ?></label>
+                <label for="name" class="form-control"> ชื่อบัญชี : <?php echo $row["fname"] . ' ' . $row["lname"] ?></label>
                 <label for="acc" class="form-control"> เลขบัญชี : <?php echo $_SESSION["acc"] ?></label>
-                <label for="money" class="form-control">เงินในบัญชี : <?php echo $_SESSION["money"] ?></label>
+                <label for="money" class="form-control">เงินในบัญชี : <?php echo $row["money"] ?></label>
             </div>
         </div>
         <ul id="sidebar-menu">

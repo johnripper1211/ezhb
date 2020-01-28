@@ -17,7 +17,7 @@ $CL->load('header');
         html,
         body {
             height: 100%;
-            background: #fff;
+            background: #142d4c;
         }
     </style>
     <div class="center-vertical">
