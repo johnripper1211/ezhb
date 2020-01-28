@@ -27,7 +27,7 @@ $CL->load('header');
                                     เติมเงินมือถือ
                                 </h3>
                                 <div class="example-box-wrapper">
-                                    <form class="form-horizontal bordered-row">
+                                    <form action="check_aon.php" class="form-horizontal bordered-row" method = "POST">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">เบอร์โทรศัพท์</label>
                                             <div class="col-sm-6">
@@ -49,24 +49,12 @@ $CL->load('header');
 
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="button" class="btn btn-primary" id="" name="term" value="เติมเงิน">
+                                                    <input type="submit" class="btn btn-primary" id="" name="term" value="เติมเงิน">
                                                 </div>
 
                                             </div>
                                         </div>
-
-                                        <!-- <div class="form-group">
-                                                <label class="col-sm-3 control-label">Select</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                    </select>
-                                                </div>
-                                            </div> -->
+                                       
                                     </form>
                                 </div>
                             </div>
