@@ -32,22 +32,36 @@ $CL->load('header');
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php
+                                                require_once 'connectDB.php';
+                                                error_reporting(E_ALL ^ E_NOTICE);
+                                                $conn = new connectDB();
+                                                $result = mysqli_query($conn->connect(), $conn->select_ll());
+                                                $i = 0;
+                                                while ($row = mysqli_fetch_array($result)) {
+                                                    session_start();
+                                                    $i = $i+1;
+                                                    if ($_SESSION['userID'] == $row['cid']) {
+                                                        // echo $row['ll_bname'] . "<br>";
+                                                        // echo $row['ll_name'] . " " . $row['lname'] . "<br>";
+                                                        // echo $row['ll_promptPay'] . "<br>";
+                                                        // echo $row['ll_accountNumber'] . "<br>";
+                                                        // echo "<br>";
+                                                   
+
+                                                ?>
                                                 <tr>
-                                                    <td data-title="ลำดับ" class="text-center">1</td>
-                                                    <td data-title="ชื่อธนาคาร" class="text-center">ธนาคารกรุงไทย</td>
-                                                    <td data-title="ชื่อบัญชี" class="text-center">นายคุณัฐญ์ คำพรมมาภิรักษ์</td>
-                                                    <td data-title="พร้อมเพย์" class="text-center">0968105815</td>
-                                                    <td data-title="เลขบัญชีธนาคาร" class="text-center">485254156</td>
-                                                    <td data-title="ฟังก์ชัน" class="text-center"><a href="#tabs-example-3"><i class="far fa-trash-alt" style="color: red;"></i></a></td>
+                                                    <td data-title="ลำดับ" class="text-center"><?php echo $i; ?></td>
+                                                    <td data-title="ชื่อธนาคาร" class="text-center"><?php echo $row['ll_bname']; ?></td>
+                                                    <td data-title="ชื่อบัญชี" class="text-center"><?php echo $row['ll_name']; ?></td>
+                                                    <td data-title="พร้อมเพย์" class="text-center"><?php echo $row['ll_promptPay']; ?></td>
+                                                    <td data-title="เลขบัญชีธนาคาร" class="text-center"><?php echo $row['ll_accountNumber']; ?></td>
+                                                    <td data-title="ฟังก์ชัน" class="text-center"><a href="delete_ll.php?ll_id=<?php echo $row['ll_id']; ?>"><i class="far fa-trash-alt" style="color: red;"></i></a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td data-title="ลำดับ" class="text-center">2</td>
-                                                    <td data-title="ชื่อธนาคาร" class="text-center">ธนาคารกรุงไทย</td>
-                                                    <td data-title="ชื่อบัญชี" class="text-center">นายสารัช ธนภัทรภักดี</td>
-                                                    <td data-title="พร้อมเพย์" class="text-center">0813654523</td>
-                                                    <td data-title="เลขบัญชีธนาคาร" class="text-center">487856556</td>
-                                                    <td data-title="ฟังก์ชัน" class="text-center"><a href="#tabs-example-3"><i class="far fa-trash-alt" style="color: red;"></i></a></td>
-                                                </tr>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
 

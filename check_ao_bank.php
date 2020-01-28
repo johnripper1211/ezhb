@@ -13,6 +13,7 @@ $conn = new connectDB();
 $sql = "SELECT * FROM customer Where accountNumber ='" . $acc . "'";
 $result = mysqli_query($conn->connect(), $sql);
 $row = mysqli_fetch_array($result);
+
 $f_name = $row['fname'];
 $f_promptPay= $row['accountNumber'];
 
@@ -20,6 +21,8 @@ $f_promptPay= $row['accountNumber'];
 $con = new connectDB();
 
 if ($submit == "aon") {
+    echo $row['b_name']."<br>";
+    echo $bank."<br>";
     if ($row['b_name'] == $bank) {
         if($money > 0){
             if($moneyc<$money ){
@@ -43,7 +46,7 @@ if ($submit == "aon") {
     } 
     else {
       echo "<script>";
-      echo "alert(\" เลขบัญชีไม่ถูกต้อง \");";
+      echo "alert(\" ไม่พบเลขบัญชี้ กรุณาตรวจสอบเลขบัญชีหรือ ธนาคารอีกครั้ง \");";
       echo "window.history.back()";
       echo "</script>";
     }

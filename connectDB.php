@@ -57,7 +57,18 @@ class connectDB
         $sql  = "SELECT * FROM `customer` WHERE user='$name'";
         return $sql;
     }
-
+    public function select_ll()
+    {
+        $sql  = "SELECT * FROM `list_like`";
+        return $sql;
+    }
+    public function delete_ll($id)
+    {
+        $sql  = "DELETE FROM `list_like` WHERE ll_id='$id'";
+        if (mysqli_query($this->connect(), $sql)) {
+            echo '<script>alert("ลบเรียบร้อย"); window.location.href = "list_like.php";</script>';
+        } else echo "Cannot Delete";
+    }
     public function select_bank($acc)
     {
         $sql  = "SELECT * FROM `customer` WHERE accountNumber='$acc'";

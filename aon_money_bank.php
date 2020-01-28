@@ -41,6 +41,7 @@ $moneyc = (int)$row["money"];
                                             <label class="col-sm-3 control-label">ธนาคาร</label>
                                             <div class="col-sm-6">
                                                 <select class="form-control" name="bank">
+                                                    <option value="ธนาคาร Easy Hack">ธนาคาร Easy Hack</option>
                                                     <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                                     <option value="ธนาคารออมสิน">ธนาคารออมสิน</option>
                                                     <option value="ธนาคารกสิกร">ธนาคารกสิกร</option>
@@ -48,7 +49,6 @@ $moneyc = (int)$row["money"];
                                                     <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
                                                     <option value="ธนาคารกรุงศรี">ธนาคารกรุงศรี</option>
                                                     <option value="ธนาคารทหารไทย">ธนาคารทหารไทย</option>
-                                                    <option value="Easy Hack">Easy Hack</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -63,7 +63,7 @@ $moneyc = (int)$row["money"];
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">หมายเลขบัญชี</label>
                                             <div class="col-sm-6">
-                                            <input type="text" class="input-mask form-control" placeholder="id" data-inputmask="&apos;mask&apos;:&apos;9-9999-99999-99-9&apos;" name="acc">
+                                            <input type="text" class="input-mask form-control" placeholder="id" data-inputmask="&apos;mask&apos;:&apos;999-99-9999-99-9&apos;" name="acc">
                                             </div>
                                         </div>
 
