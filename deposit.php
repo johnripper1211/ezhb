@@ -14,6 +14,8 @@ $CL->load('header');
     });
 </script>
 
+<script type="text/javascript" src="assets/widgets/parsley/parsley.js"></script>
+
 <body>
     <div id="page-wrapper">
         <div id="sb-site">
@@ -24,7 +26,7 @@ $CL->load('header');
                     <div class="container">
                         <div class="panel">
                             <div class="panel-body">
-                                <form class="form-horizontal" name="frmSearch" method="get" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>">
+                                <form class="form-horizontal" name="frmSearch" method="get" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" required data-parsley-validate="">
                                     <div class="form-group">
                                         <h2 class="col-sm-6 control-label">ฝากเงิน</h2>
                                     </div>
@@ -32,7 +34,7 @@ $CL->load('header');
                                     <div class="form-group ">
                                         <label class="col-sm-3 control-label" for="exampleInputPassword1">เลขบัญชี : </label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="input-mask form-control" name="txtKeyword" id="exampleInputPassword1" data-inputmask="&apos;mask&apos;:&apos;999-99-9999-99-9&apos;">
+                                            <input type="text" class="input-mask form-control" name="txtKeyword" id="exampleInputPassword1" required data-inputmask="&apos;mask&apos;:&apos;999-99-9999-99-9&apos;">
                                             <div class="help-block">ตัวอย่างเช่น : 999-99-9999-99-9</div>
                                         </div>
                                         <div class="col-sm-2">
@@ -65,7 +67,7 @@ $CL->load('header');
                                                             <label for="exampleInputPassword1">ชื่อบัญชี : <?php echo $row['fname'] . ' ' . $row['lname'] ?></label>
                                                             <br>
                                                             <label for="exampleInputPassword1">เลขบัญชี : </label>
-                                                            <input type="text" class="w-25" name="acc" value="<?php echo $row['accountNumber'] ?>" readonly>
+                                                            <input type="text" style="border-width:0px;border:none;background:#ffffff;" class="w-50" name="acc" value="<?php echo $row['accountNumber'] ?>" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
