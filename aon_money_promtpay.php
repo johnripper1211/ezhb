@@ -4,7 +4,7 @@ include 'controller.php';
 $CL->load('header');
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
-include 'connectDB.php';
+// include 'connectDB.php';
 $user = $_SESSION["user"];
 $conn = new connectDB();
 $result = mysqli_query($conn->connect(), $conn->select_member($user));

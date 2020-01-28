@@ -1,6 +1,6 @@
 
 <?php
-
+include 'connectDB.php';
 require_once 'connectDB.php';
 error_reporting(E_ALL ^ E_NOTICE);
 $money = (int)$_POST['money'];

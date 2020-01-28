@@ -3,7 +3,7 @@
 include 'controller.php';
 $CL->load('header');
 
-include 'connectDB.php';
+// include 'connectDB.php';
 
 $user = $_SESSION["user"];
 $conn = new connectDB();

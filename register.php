@@ -270,7 +270,7 @@ $CL->load('header');
 
                                         <div class="form-group">
                                             <div class="col-md-offset-3 bg-default text-center pad20A mrg25T">
-                                                <button type="submit" class="btn btn-primary col-sm-3 mrg10A" name="submit" value="register"> ยืนยันสมัคร </button>
+                                                <button type="submit" class="btn btn-primary col-sm-3 mrg10A" name="submit" value="register">เปิดบัญชี</button>
                                                 <a href="<?php $CL->base_url('dashboard'); ?>" type="button" class="btn btn-danger col-sm-3 mrg10A">ยกเลิก</a>
                                             </div>
                                         </div>
