@@ -74,20 +74,17 @@ $CL->load('header');
 
 <script type="text/javascript" src="assets/widgets/parsley/parsley.js"></script>
 
-<?php
-include 'connectDB.php';
-error_reporting(E_ALL ^ E_NOTICE);
-$user = $_SESSION["user"];
-$conn = new connectDB();
-$result = mysqli_query($conn->connect(), $conn->select_member($user));
-$row = mysqli_fetch_array($result);
-?>
-
 <body>
     <div id="page-wrapper">
         <div id="sb-site">
             <!-- <?php $CL->load('admin_option'); ?> -->
             <?php $CL->load('menu'); ?>
+            <?php
+            error_reporting(E_ALL ^ E_NOTICE);
+            $conn = new connectDB();
+            $result = mysqli_query($conn->connect(), $conn->select_member($_SESSION["user"]));
+            $row = mysqli_fetch_array($result);
+            ?>
             <div id="page-content-wrapper">
                 <div id="page-content">
                     <div class="container">

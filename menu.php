@@ -387,13 +387,13 @@ $CL = new CONTROLLER;
         </a> -->
 
     </div><!-- #header-nav-right -->
-
-<?php 
+    <?php
+    error_reporting(E_ALL ^ E_NOTICE);
     include 'connectDB.php';
     $conn = new connectDB();
     $result = mysqli_query($conn->connect(), $conn->select_member($_SESSION["user"]));
     $row = mysqli_fetch_array($result);
-?>
+    ?>
 </div>
 <div id="page-sidebar">
     <div class="scroll-sidebar">
