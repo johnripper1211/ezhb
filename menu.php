@@ -36,14 +36,14 @@ $CL = new CONTROLLER;
             <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown">
                 <img width="28" src="assets/image-resources/gravatar.jpg" alt="Profile image">
                 <span><?php
-                    echo $_SESSION["user"];
-                ?></span>
+                        echo $_SESSION["user"];
+                        ?></span>
                 <i class="glyph-icon icon-angle-down"></i>
             </a>
             <div class="dropdown-menu float-left">
                 <div class="box-sm">
                     <div class="pad5A button-pane button-pane-alt text-center">
-                        <a href="<?php $CL->base_url('c_logout'); ?>" class="btn display-block font-normal btn-danger" >
+                        <a href="<?php $CL->base_url('c_logout'); ?>" class="btn display-block font-normal btn-danger">
                             <i class="glyph-icon icon-power-off"></i>
                             Logout
                         </a>
@@ -388,9 +388,17 @@ $CL = new CONTROLLER;
 
     </div><!-- #header-nav-right -->
 
+
 </div>
 <div id="page-sidebar">
     <div class="scroll-sidebar">
+        <div>
+            <div class="p-1">
+                <label for="name" class="form-control"> ชื่อบัญชี : <?php echo $_SESSION["fname"] . ' ' . $_SESSION["lname"] ?></label>
+                <label for="acc" class="form-control"> เลขบัญชี : <?php echo $_SESSION["acc"] ?></label>
+                <label for="money" class="form-control">เงินในบัญชี : <?php echo $_SESSION["money"] ?></label>
+            </div>
+        </div>
         <ul id="sidebar-menu">
             <?php if ($_SESSION["status"] == "admin") { //ถ้าเป็น admin 
             ?>
