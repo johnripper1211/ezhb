@@ -6,7 +6,6 @@ $CL->load('header');
 <body>
     <?php
            
-            require_once 'connectDB.php';
             error_reporting(E_ALL^E_NOTICE);
             $con = new connectDB();
             $con -> connect();

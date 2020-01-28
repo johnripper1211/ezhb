@@ -44,7 +44,6 @@ $CL->load('header');
 
                                 </form>
                                 <?php
-                                include 'connectDB.php';
                                 error_reporting(E_ALL ^ E_NOTICE);
                                 $conn = new connectDB();
                                 $result = mysqli_query($conn->connect(), $conn->select_bank($_GET["txtKeyword"]));
