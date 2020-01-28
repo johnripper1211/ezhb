@@ -69,7 +69,18 @@ class connectDB
         $sql  = "UPDATE customer SET `money`= money - '" . $money . "'  WHERE accountNumber='$accountNumber'";
         echo $sql;
         if (mysqli_query($this->connect(), $sql)) {
-            header("Location:withdraw.php");
+            echo '<script>alert("ถอนเงินสำเร็จ"); window.location.href = "witdraw.php";</script>';
+        } else echo "Cannot Insert";
+    }
+
+    public function update_monney_deposit($accountNumber, $money)
+    {
+        echo $accountNumber;
+        echo $money;
+        $sql  = "UPDATE customer SET `money`= money + '" . $money . "'  WHERE accountNumber='$accountNumber'";
+        echo $sql;
+        if (mysqli_query($this->connect(), $sql)) {
+            echo '<script>alert("ฝากเงินสำเร็จ"); window.location.href = "deposit.php";</script>';
         } else echo "Cannot Insert";
     }
 

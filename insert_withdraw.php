@@ -9,7 +9,12 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
         if ($monny <= $row['money']) {
-            $conn->update_monney_withdraw($account, $monny);
+            if($row['b_name']=="ธนาคาร Easy Hack"){
+                $conn->update_monney_withdraw($account, $monny);
+                echo '<script>alert("ถอนเงินสำเร็จ"); window.location.href = "withdraw.php";</script>';
+            }else{
+                echo '<script>alert("บัญชี้นี้ไม่ใช่ของธนาคาร Easy Hack"); window.location.href = "withdraw.php";</script>';
+            }
         }else{
             echo '<script>alert("ไม่สามารถถอนได้เนื่องจากวงเงินเกินบัญชี"); window.location.href = "withdraw.php";</script>';
         }

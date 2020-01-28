@@ -38,7 +38,7 @@ $CL->load('header');
                                             <div class="help-block">ตัวอย่างเช่น : 999-99-9999-99-9</div>
                                         </div>
                                         <div class="col-sm-2">
-                                            <button type="submit" class="btn btn-primary btn-md btn-block">ค้นหา</button>
+                                            <button type="submit" class="btn btn-primary btn-md btn-block">ตรวจสอบเลขบัญชี</button>
                                         </div>
                                     </div>
 
@@ -55,6 +55,9 @@ $CL->load('header');
                                     if ($_GET["txtKeyword"] != "") {
                                         if (mysqli_num_rows($result) == 1) {
                                             $row = mysqli_fetch_array($result);
+                                            if($row['b_name']=="ธนาคาร Easy Hack"){
+
+                                            
                                     ?>
                                             <div class="form-group">
                                                 <div class="col-sm-3"></div>
@@ -73,7 +76,23 @@ $CL->load('header');
                                                 </div>
                                             </div>
                                         <?php
-                                        } else {
+                                        }else{
+                                        ?>
+                                            <div class="form-group">
+                                                <div class="col-sm-3"></div>
+                                                <div class="col-sm-6">
+                                                    <div class="content-box">
+                                                        <h3 class="content-box-header bg-black">
+                                                            รายชื่อบัญชี
+                                                        </h3>
+                                                        <div class="content-box-wrapper">
+                                                            <label for="exampleInputPassword1">** บัญชี้นี้ไม่ใช่ของธนาคาร Easy Hack ไม่สามรถฝากได้ **</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }} else {
                                         ?>
                                             <div class="form-group">
                                                 <div class="col-sm-3"></div>
@@ -93,21 +112,21 @@ $CL->load('header');
                                         }
                                     }
                                     ?>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="col-sm-3 control-label" for="exampleInputPassword1">ชื่อคนฝาก: </label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" for="exampleInputPassword1">จำนวนเงิน : </label>
                                         <div class="col-sm-2">
-                                            <input type="text" placeholder="บาท" class="form-control" id="exampleInputPassword1" maxlength="12">
+                                            <input type="text" placeholder="บาท" class="form-control" id="exampleInputPassword1" name="money" maxlength="12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-3 bg-default text-center pad20A mrg25T">
-                                            <button type="submit" class="btn btn-primary col-sm-3 mrg10A">ฝากเงิน</button>
+                                            <button type="submit" name="submit" class="btn btn-primary col-sm-3 mrg10A">ฝากเงิน</button>
                                             <button type="button" class="btn btn-danger col-sm-3 mrg10A" onclick="history.back();">ยกเลิก</button>
                                         </div>
                                     </div>
