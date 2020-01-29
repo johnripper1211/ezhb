@@ -13,7 +13,11 @@ if ($acc==""){
 }
 echo $money."<br>";
 $conn = new connectDB();
-
+$result1 = mysqli_query($conn->connect(), $conn->select_bank($acc));
+$row1 = mysqli_fetch_array($result1);
+$cid = $row1['c_id'];
+$name = "ฝากเงิน";
+$conn->insert_history($cid,$name,$money);
 if (isset($_POST['submit'])) {
     $result = mysqli_query($conn->connect(), $conn->select_bank($acc));
     if (mysqli_num_rows($result) == 1) {

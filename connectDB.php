@@ -22,9 +22,18 @@ class connectDB
             header("Location:register.php");
         } else echo "Cannot Insert";
     }
+
     public function insert_ll($id,$ll_bname,$ll_name,$ll_promptPay,$ll_accountNumber)
     {
         $sql = "INSERT INTO `list_like`(`cid`, `ll_bname`, `ll_name`, `ll_promptPay`, `ll_accountNumber`) VALUES ('$id','$ll_bname','$ll_name','$ll_promptPay','$ll_accountNumber')";
+        if (mysqli_query($this->connect(), $sql)) {
+            // header("Location:list_like.php");
+        } else echo "Cannot Insert";
+    }
+    
+    public function insert_history($cid,$hname,$money)
+    {
+        $sql = "INSERT INTO `history`(`c_id`, `h_name`, `money`) VALUES ('$cid','$hname','$money')";
         if (mysqli_query($this->connect(), $sql)) {
             // header("Location:list_like.php");
         } else echo "Cannot Insert";
@@ -81,6 +90,13 @@ class connectDB
             echo '<script>alert("ลบเรียบร้อย"); window.location.href = "list_like.php";</script>';
         } else echo "Cannot Delete";
     }
+
+    public function select_promt($acc)
+    {
+        $sql  = "SELECT * FROM `customer` WHERE promptPay='$acc'";
+        return $sql;
+    }
+
     public function select_bank($acc)
     {
         $sql  = "SELECT * FROM `customer` WHERE accountNumber='$acc'";
@@ -92,7 +108,7 @@ class connectDB
         $sql  = "UPDATE customer SET `money`= money - '" . $money . "'  WHERE accountNumber='$accountNumber'";
         echo $sql;
         if (mysqli_query($this->connect(), $sql)) {
-            echo '<script>alert("ถอนเงินสำเร็จ"); window.location.href = "witdraw.php";</script>';
+            echo '<script>alert("ถอนเงินสำเร็จ"); window.location.href = "withdraw.php";</script>';
         } else echo "Cannot Insert";
     }
 

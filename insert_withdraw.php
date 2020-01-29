@@ -4,6 +4,11 @@ error_reporting(E_ALL ^ E_NOTICE);
 $account = $_POST['acc'];
 $monny = $_POST['monny'];
 $conn = new connectDB();
+$result1 = mysqli_query($conn->connect(), $conn->select_bank($account));
+$row1 = mysqli_fetch_array($result1);
+$cid = $row1['c_id'];
+$name = "ถอนเงิน";
+$conn->insert_history($cid,$name,$monny);
 if (isset($_POST['submit'])) {
     $result = mysqli_query($conn->connect(), $conn->select_bank($account));
     if (mysqli_num_rows($result) == 1) {

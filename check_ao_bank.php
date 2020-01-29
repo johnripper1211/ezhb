@@ -34,10 +34,18 @@ if ($submit == "aon") {
                 session_start();
                 if($_SESSION['userID']==$row['c_id']){
                     echo "<script>";
-                    echo "alert(\"ไม่สามารถโอนเงินผ่านเบอร์พร้อมเพย์ตัวเองได้\");";
+                    echo "alert(\"ไม่สามารถโอนเงินผ่านหมายเลขธนาคารตัวเองได้\");";
                     echo "window.history.back()";
                     echo "</script>";
                 }else{
+                    $result1 = mysqli_query($conn->connect(), $conn->select_bank($acc));
+                    $row1 = mysqli_fetch_array($result1);
+                    $cid = $row1['c_id'];
+                    $name = "โอนเงินไปยัง " . $acc;
+                    $conn->insert_history($_SESSION["userID"], $name, "- " . $money);
+                    $name = "โอนเงินเข้าจาก " . $_SESSION["acc"];
+                    $conn->insert_history($cid, $name,"+ ".$money);
+
                     $con->updateaon_bank($money,$acc,$f_name,$f_promptPay);
                     $con->updateaon_bank1($money);
                 }

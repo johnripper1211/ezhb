@@ -22,6 +22,7 @@ if (isset($_POST['user'])) {
     $_SESSION["pass"] = $row["pass"];
     $_SESSION["fname"] = $row["fname"];
     $_SESSION["lname"] = $row["lname"];
+    $_SESSION["prom"] = $row["promptPay"];
     $_SESSION["acc"] = $row["accountNumber"];
     $_SESSION["status"] = $row["status"];
     $_SESSION["state"] = 1;
