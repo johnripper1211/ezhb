@@ -78,6 +78,13 @@ class connectDB
         $sql  = "SELECT * FROM `list_like`";
         return $sql;
     }
+
+    public function select_history()
+    {
+        $sql  = "SELECT * FROM `history`";
+        return $sql;
+    }
+
     public function select_ll_sin($ll_id)
     {
         $sql  = "SELECT * FROM `list_like` WHERE ll_id='$ll_id'";

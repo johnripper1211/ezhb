@@ -39,7 +39,6 @@ $CL->load('header');
 
                         <div id="page-title">
                             <h2>ดูรายการย้อนหลัง</h2>
-                            <p>แสดงรายการ้อนหลังได้ 7 วัน</p>
                         </div>
 
                         <div class="panel">
@@ -48,84 +47,35 @@ $CL->load('header');
                                     <table id="datatable-responsive" class="table table-striped table-bordered responsive no-wrap" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>รายการ</th>
+                                                <th>จำนวนเงิน</th>
+                                                <th>วันเวลา</th>
                                             </tr>
                                         </thead>
 
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
-
                                         <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>2012/08/06</td>
-                                                <td>$137,500</td>
-                                            </tr>
-                                            
+                                            <?php
+                                            require_once 'connectDB.php';
+                                            error_reporting(E_ALL ^ E_NOTICE);
+                                            $conn = new connectDB();
+                                            $result = mysqli_query($conn->connect(), $conn->select_history());
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                session_start();
+                                                if ($_SESSION['userID'] == $row['c_id']) {
+
+
+
+                                            ?>
+                                                    <tr>
+
+                                                        <td><?php echo $row["h_name"]; ?></td>
+                                                        <td><?php echo $row["money"]; ?></td>
+                                                        <td><?php echo $row["date"]; ?></td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -139,7 +89,6 @@ $CL->load('header');
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 <?php $CL->load('footer'); ?>
