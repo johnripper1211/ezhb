@@ -55,32 +55,15 @@ $CL = new CONTROLLER;
 
     <div id="header-nav-right">
 
-        <!-- <a href="#" class="hdr-btn popover-button" title="Search" data-placement="bottom" data-id="#popover-search">
-            <i class="glyph-icon icon-search"></i>
-        </a>
-        <div class="hide" id="popover-search">
-            <div class="pad5A box-md">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search terms here ...">
-                    <span class="input-group-btn">
-                        <a class="btn btn-primary" href="#">Search</a>
-                    </span>
-                </div>
-            </div>
-        </div> -->
-
         <a href="#" class="hdr-btn" id="fullscreen-btn" title="Fullscreen">
             <i class="glyph-icon icon-arrows-alt"></i>
         </a>
-        <!-- <a href="#" class="hdr-btn sb-toggle-left" id="chatbox-btn" title="Chat sidebar">
-            <i class="glyph-icon icon-linecons-paper-plane"></i>
-        </a> -->
         <div class="dropdown" id="notifications-btn">
-            <a data-toggle="dropdown" href="#" title="">
+            <!-- <a data-toggle="dropdown" href="#" title="">
                 <span class="small-badge bg-yellow"></span>
                 <i class="glyph-icon icon-linecons-megaphone"></i>
-            </a>
-            <div class="dropdown-menu box-md float-right">
+            </a> -->
+            <!-- <div class="dropdown-menu box-md float-right">
 
                 <div class="popover-title display-block clearfix pad10A">
                     Notifications
@@ -180,12 +163,12 @@ $CL = new CONTROLLER;
                         </li>
                     </ul>
                 </div>
-                <div class="pad10A button-pane button-pane-alt text-center">
+                 <div class="pad10A button-pane button-pane-alt text-center">
                     <a href="#" class="btn btn-primary" title="View all notifications">
                         View all notifications
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- <div class="dropdown" id="progress-btn">
             <a data-toggle="dropdown" href="#" title="">

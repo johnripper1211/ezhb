@@ -9,10 +9,10 @@ $CL->load('header');
             <!-- <?php $CL->load('admin_option'); ?> -->
             <?php $CL->load('menu'); ?>
             <div id="page-content-wrapper">
-                <div id="page-content">
+                <div id="page-content" >
                     <div class="container">
-                        <div id="page-title">
-                            
+                        <div class="text-center"  style="color: green;">
+                            <h1>ยินดีต้อนรับเข้าสู่ Eazy Hack Banking</h1>
                         </div>
                     </div>
                 </div>
