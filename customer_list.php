@@ -26,12 +26,12 @@ $CL->load('header');
 
                             </div>
                             <div class="col-md-4">
-                                <div class="input-group">
+                                <!-- <div class="input-group">
                                     <input type="text" class="form-control" placeholder="ค้นหารายการโปรด">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary" type="button">ค้นหา</button>
                                     </span>
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class="col-md-4">
@@ -42,7 +42,7 @@ $CL->load('header');
                         <div class="panel" style="margin-top: 10px;">
                             <div class="panel-body">
                                 <h3 class="title-hero">
-                                    รายการโปรด
+                                    รายการผู้ใช้งาน
                                 </h3>
 
                                 <div class="example-box-wrapper">
