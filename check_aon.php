@@ -18,6 +18,11 @@ $f_promptPay = $row['promptPay'];
 
 $con = new connectDB();
 
+function startsWith($string, $startString)
+{
+    $len = strlen($startString);
+    return (substr($string, 0, $len) == $startString);
+}
 
 if ($submit == "aon") {
     if (mysqli_num_rows($result) == 1) {
@@ -48,7 +53,6 @@ if ($submit == "aon") {
                     $con->updateaon($money, $phone, $f_name, $f_promptPay);
                     $con->updateaon1($money);
                 }
-                
             }
         } else {
             echo "<script>";
@@ -65,23 +69,33 @@ if ($submit == "aon") {
 } else {
     $money = (int) $_POST['money'];
     $phone = $_POST['numphone'];
-    function startsWith($string, $startString)
-    {
-        $len = strlen($startString);
-        return (substr($string, 0, $len) === $startString);
-    }
-    //  if(strpos(startsWith($phone,"08")))
+    $user_id = $_SESSION["userID"];
+    $sql = "SELECT * FROM customer Where c_id='" . $user_id . "'";
+    $result = mysqli_query($conn->connect(), $sql);
+    $row = mysqli_fetch_array($result);
+
     if (startsWith($phone, "08") || startsWith($phone, "09") || startsWith($phone, "06")) {
-        echo "<script>";
-        echo "alert(\"ทำรายการสำเร็จ.\");";
-        echo "window.history.back()";
-        echo "</script>";
-        $result1 = mysqli_query($conn->connect(), $conn->select_promt($phone));
-        $row1 = mysqli_fetch_array($result1);
-        $cid = $row1['c_id'];
-        $name = "เติมเงินไปยัง " . $phone;
-        $conn->insert_history($_SESSION["userID"], $name, "- " . $money);
-        $con->updateaon1($money);
+        if ($money > 0) {
+            if ($money <= $row['money']) {
+                echo "<script>";
+                echo "alert(\"ทำรายการสำเร็จ.\");";
+                echo "window.history.back()";
+                echo "</script>";
+                $name = "เติมเงินไปยัง " . $phone;
+                $conn->insert_history($user_id, $name, "- " . $money);
+                $con->updateaon1($money);
+            }else{
+                echo "<script>";
+                echo "alert(\"จำนวนเงินในบัญชีไม่เพียงพอ.\");";
+                echo "window.history.back()";
+                echo "</script>";
+            }
+        } else {
+            echo "<script>";
+            echo "alert(\"จำนวนเงินไม่ถูกต้อง.\");";
+            echo "window.history.back()";
+            echo "</script>";
+        }
     } else {
         echo "<script>";
         echo "alert(\"รูปแบบเบอร์โทรไม่ถูกต้อง\");";

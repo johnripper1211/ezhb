@@ -62,12 +62,8 @@ $CL->load('header');
                                             while ($row = mysqli_fetch_array($result)) {
                                                 session_start();
                                                 if ($_SESSION['userID'] == $row['c_id']) {
-
-
-
                                             ?>
                                                     <tr>
-
                                                         <td><?php echo $row["h_name"]; ?></td>
                                                         <td><?php echo $row["money"]; ?></td>
                                                         <td><?php echo $row["date"]; ?></td>
